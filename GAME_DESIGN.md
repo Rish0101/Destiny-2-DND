@@ -1,17 +1,17 @@
-# Dungeons and a Space Wizard — Game Design and Build Plan
+﻿# Dungeons and a Space Wizard — Game Design and Build Plan
 
 Status: planning specification; no game code implemented yet.
 
 ## 1. Game vision
 
-A 2D, top-down dungeon RPG for 1–6 players, built with Phaser and TypeScript. Create a Destiny 2 Guardian, explore multi-level raid-inspired dungeons, earn random weapons and armor, and interact with an AI dungeon master. The same dungeon supports solo play and cooperative fireteams through party-size scaling.
+A 2D, top-down dungeon RPG for 1–6 players, built with Phaser and TypeScript. Create a Destiny 2 Guardian, explore a multi-level simulation of Destiny 2's Vault of Glass, earn random weapons and armor, and interact with an AI dungeon master. The same dungeon supports solo play and cooperative fireteams through party-size scaling.
 
 The experience combines visual exploration, tactical turn-based combat, and flexible storytelling. It adapts Destiny's class fantasy into a tabletop-style game rather than recreating its shooter controls or every D&D rule.
 
 ## 2. Confirmed requirements
 
 - Character builder supports Hunter, Titan, and Warlock, with every supported Destiny 2 subclass available for each class.
-- Dungeons contain multiple floors based on Destiny 2 raid themes and encounter ideas.
+- The first dungeon simulates Destiny 2's Vault of Glass, including its encounter order, locations, bosses, and defining mechanics.
 - Bungie's Destiny 2 API supplies weapon and armor catalog information.
 - Only a curated, limited selection of that catalog is playable or eligible to drop.
 - Weapons and armor drop randomly and should provide useful, interesting choices.
@@ -75,25 +75,34 @@ Combat supports movement, weapon attacks, grenade, melee, class ability, Super, 
 
 In cooperative combat, use a shared player phase: each Guardian can spend their own action budget, with the server resolving submitted actions in a stable order. The enemy phase starts when all participating Guardians end their turns. Clearly show pending actions and whose turn budget remains. Use a configurable inactivity policy and reconnect grace period so one disconnected player cannot block the session indefinitely.
 
-## 6. Multi-level raid-inspired dungeons
+## 6. Vault of Glass simulation
 
 A dungeon is a connected sequence of authored floors with escalating mechanics. Each floor contains rooms, enemies, interactable objects, objectives, encounter state, reward tables, and an exit condition.
 
-### First dungeon proposal: a Vault of Glass-inspired descent
+### Confirmed target: Destiny 2's Vault of Glass
 
-The following encounters are original adaptations for this game's solo and cooperative tactical format, not exact raid reproductions.
+The dungeon is intended to simulate Vault of Glass itself, preserving its recognizable locations, encounter sequence, bosses, and core mechanic relationships. It is not a generic raid-themed dungeon or an invented three-floor story. Use the Destiny 2 version as the reference baseline; document any changes required by 2D presentation, tactical turns, or smaller fireteams.
 
-| Floor | Theme           | Main mechanic                                      | Completion                        |
-| ----- | --------------- | -------------------------------------------------- | --------------------------------- |
-| 1     | Ruined entrance | Capture plates while managing enemy waves          | Open the vault                    |
-| 2     | Oracle chambers | Observe and repeat a short symbol sequence         | Break the chamber seal            |
-| 3     | Temporal depths | Alternate between two room states to expose a boss | Defeat the timekeeper and extract |
+| Order | Raid section | Mechanic identity to preserve |
+| --- | --- | --- |
+| 1 | Waking Ruins / opening the Vault | Vex plates and spire formation to open the entrance |
+| 2 | Confluxes | Defend confluxes against Vex sacrifices |
+| 3 | Oracles | Observe and destroy Oracles in the required sequence |
+| 4 | The Templar | Aegis relic, shield removal, and teleport denial |
+| 5 | Gorgons' Labyrinth | Navigate patrols and avoid detection |
+| 6 | Chasm traversal | Cross disappearing platforms to reach the Glass Throne |
+| 7 | Gatekeepers | Portals, relic coordination, and conflux defense |
+| 8 | Atheon, Time's Conflux | Time-separated teams, Oracle callouts, relic cleansing, and Time's Vengeance damage windows |
+
+These are encounter-outline references, not complete scripts. Verify exact Destiny 2 timings, wave rules, failure states, and interactions before implementing each encounter. A floor or map boundary represents a raid section or traversal area; do not force the raid into three invented floors. Atheon is the final boss, and the Templar remains a distinct boss encounter.
+
+Six-player mode is the fidelity baseline. Smaller-party variants must retain each encounter's purpose while making its required roles achievable. Specify solo portal observation, relic duties, and split-team mechanics explicitly before implementation; reduced health alone cannot make these encounters soloable. All departures from the reference mechanics belong in an encounter adaptation table.
 
 Every encounter defines variants for 1–6 players. Solo uses sequential plate activation, timed devices, or controllable relics; larger parties can coordinate concurrent objectives. Never require more simultaneous operators than the encounter's locked party size. Encounters must be solvable by every class and subclass without a mandatory weapon drop or class composition.
 
 Teach each mechanic in a safe or low-risk room before combining it with combat. Clearly show objectives, interactable objects, telegraphed hazards, and boss vulnerability phases. Essential instructions must exist in authored UI even when AI is unavailable.
 
-Future dungeons can draw on other raid identities after the first complete descent works. New dungeon content should be data-driven.
+Other raids are future scope. Complete the Vault of Glass simulation before introducing another raid. New dungeon content should be data-driven.
 
 ### Scalable difficulty for 1–6 players
 
@@ -266,10 +275,10 @@ The database and rules state are authoritative. Phaser objects and AI narration 
 
 ### Milestone 4 — Complete multi-floor dungeon
 
-- Three connected floors with checkpoints and distinct mechanics.
+- The complete Vault of Glass route, from opening the Vault through Atheon, with checkpoints and encounter-specific mechanics.
 - Boss vulnerability cycle, defeat/retry, final rewards, and extraction.
 - Verify every class can finish without requiring a lucky drop.
-- Verify all three floors and boss mechanics work at every party size from 1 through 6, including wipe/retry and checkpoint roster changes.
+- Verify every raid section and boss mechanic works at every party size from 1 through 6, including wipe/retry and checkpoint roster changes.
 
 ### Milestone 5 — AI storytelling
 
@@ -289,7 +298,7 @@ The database and rules state are authoritative. Phaser objects and AI narration 
 
 - A player can create any supported Hunter, Titan, or Warlock subclass without selecting Aspects.
 - Every offered kit has functioning abilities and documented passives.
-- One raid-inspired dungeon has at least three playable floors and a final boss.
+- A complete Vault of Glass simulation includes all listed raid sections, the Templar encounter, and Atheon as the final boss.
 - Catalog-backed weapons and armor can drop, be inspected, equipped, saved, and loaded.
 - Unsupported catalog items never enter loot tables.
 - Combat and rewards remain correct with AI disabled.
@@ -311,7 +320,7 @@ Recommended starting answers are included so planning can continue without block
 | Scaling                | Automatic party-size profiles, locked per encounter                 |
 | Cooperative combat     | Shared player phase, then enemy phase                               |
 | Cooperative rewards    | Independent personal loot for eligible participants                 |
-| First raid inspiration | Vault of Glass                                                      |
+| Raid simulation target | Vault of Glass                                                      |
 | Subclass switching     | Safe checkpoints only                                               |
 | Fragment interface     | Omit; include necessary behavior in kits                            |
 | Defeat penalty         | Restart current encounter; retain already committed rewards         |
@@ -332,3 +341,4 @@ Local combat values, simplified equipment rules, floor layouts, drop rates, and 
 ## Next step
 
 Review the proposed defaults in section 13, then build Milestone 1 before expanding the content or adding AI.
+
