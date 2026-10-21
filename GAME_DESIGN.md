@@ -1,4 +1,4 @@
-# Guardian Delves — Game Design and Build Plan
+# Dungeons and a Space Wizard — Game Design and Build Plan
 
 Status: planning specification; no game code implemented yet.
 
@@ -44,11 +44,11 @@ These are implementation recommendations, not additional confirmed requirements:
 
 The planned baseline subclass families are Arc, Solar, Void, Stasis, Strand, and Prismatic for all three classes: 18 class/subclass combinations. Verify the current roster before implementation and use data-driven definitions so future additions do not require rebuilding the character builder.
 
-| Class | Intended identity | Example strengths |
-| --- | --- | --- |
-| Hunter | Precision, movement, deception | Dodge, positioning, burst damage |
-| Titan | Frontline pressure and protection | Barriers, melee, damage mitigation |
-| Warlock | Ability control and support | Healing, area effects, ability synergy |
+| Class   | Intended identity                 | Example strengths                      |
+| ------- | --------------------------------- | -------------------------------------- |
+| Hunter  | Precision, movement, deception    | Dodge, positioning, burst damage       |
+| Titan   | Frontline pressure and protection | Barriers, melee, damage mitigation     |
+| Warlock | Ability control and support       | Healing, area effects, ability synergy |
 
 ### Complete subclass kits
 
@@ -83,11 +83,11 @@ A dungeon is a connected sequence of authored floors with escalating mechanics. 
 
 The following encounters are original adaptations for this game's solo and cooperative tactical format, not exact raid reproductions.
 
-| Floor | Theme | Main mechanic | Completion |
-| --- | --- | --- | --- |
-| 1 | Ruined entrance | Capture plates while managing enemy waves | Open the vault |
-| 2 | Oracle chambers | Observe and repeat a short symbol sequence | Break the chamber seal |
-| 3 | Temporal depths | Alternate between two room states to expose a boss | Defeat the timekeeper and extract |
+| Floor | Theme           | Main mechanic                                      | Completion                        |
+| ----- | --------------- | -------------------------------------------------- | --------------------------------- |
+| 1     | Ruined entrance | Capture plates while managing enemy waves          | Open the vault                    |
+| 2     | Oracle chambers | Observe and repeat a short symbol sequence         | Break the chamber seal            |
+| 3     | Temporal depths | Alternate between two room states to expose a boss | Defeat the timekeeper and extract |
 
 Every encounter defines variants for 1–6 players. Solo uses sequential plate activation, timed devices, or controllable relics; larger parties can coordinate concurrent objectives. Never require more simultaneous operators than the encounter's locked party size. Encounters must be solvable by every class and subclass without a mandatory weapon drop or class composition.
 
@@ -303,21 +303,21 @@ The database and rules state are authoritative. Phaser objects and AI narration 
 
 Recommended starting answers are included so planning can continue without blocking:
 
-| Decision | Recommended starting answer |
-| --- | --- |
-| Combat style | Turn-based tactical combat |
-| Party control | One Guardian per player; solo or cooperative fireteams of up to six |
-| Party access | Private online lobbies initially |
-| Scaling | Automatic party-size profiles, locked per encounter |
-| Cooperative combat | Shared player phase, then enemy phase |
-| Cooperative rewards | Independent personal loot for eligible participants |
-| First raid inspiration | Vault of Glass |
-| Subclass switching | Safe checkpoints only |
-| Fragment interface | Omit; include necessary behavior in kits |
-| Defeat penalty | Restart current encounter; retain already committed rewards |
-| Loot persistence | Permanent collection across runs |
-| Maps | Authored layouts with bounded encounter variation |
-| AI provider/model | Choose during implementation based on latency and cost |
+| Decision               | Recommended starting answer                                         |
+| ---------------------- | ------------------------------------------------------------------- |
+| Combat style           | Turn-based tactical combat                                          |
+| Party control          | One Guardian per player; solo or cooperative fireteams of up to six |
+| Party access           | Private online lobbies initially                                    |
+| Scaling                | Automatic party-size profiles, locked per encounter                 |
+| Cooperative combat     | Shared player phase, then enemy phase                               |
+| Cooperative rewards    | Independent personal loot for eligible participants                 |
+| First raid inspiration | Vault of Glass                                                      |
+| Subclass switching     | Safe checkpoints only                                               |
+| Fragment interface     | Omit; include necessary behavior in kits                            |
+| Defeat penalty         | Restart current encounter; retain already committed rewards         |
+| Loot persistence       | Permanent collection across runs                                    |
+| Maps                   | Authored layouts with bounded encounter variation                   |
+| AI provider/model      | Choose during implementation based on latency and cost              |
 
 ## 14. Sources and reference boundaries
 

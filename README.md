@@ -1,6 +1,6 @@
 ﻿<div align="center">
 
-# GUARDIAN DELVES
+# Dungeons and a Space Wizard
 
 ### What if your next raid began with a roll of the dice?
 
@@ -14,14 +14,14 @@
 
 ![Official Destiny 2 Prismatic reference imagery from Bungie](docs/images/prismatic.jpg)
 
-<sub>Destiny 2 reference imagery © Bungie. Not a screenshot of Guardian Delves.</sub>
+<sub>Destiny 2 reference imagery © Bungie. Not a screenshot of Dungeons and a Space Wizard.</sub>
 
 </div>
 
 ---
 
 > [!NOTE]
-> **Still on the drawing board.** Guardian Delves is currently a design concept. There is no playable build or release date yet. Everything teased here is a direction to explore, subject to change.
+> **Still on the drawing board.** Dungeons and a Space Wizard is currently a design concept. There is no playable build or release date yet. Everything teased here is a direction to explore, subject to change.
 
 ## A different kind of descent
 
@@ -29,7 +29,7 @@ Imagine a familiar power in an unfamiliar form.
 
 A Guardian on a 2D dungeon map. A sealed chamber beneath your feet. A fireteam debating its next move. Somewhere beyond the door, a raid mechanic waiting to be understood.
 
-The idea behind **Guardian Delves** is to bring Destiny-inspired class fantasy into a tactical, tabletop-style adventure—with room for an AI dungeon master to help tell the story.
+The idea behind **Dungeons and a Space Wizard** is to bring Destiny-inspired class fantasy into a tactical, tabletop-style adventure—with room for an AI dungeon master to help tell the story.
 
 ## Three paths into the dark
 
@@ -61,13 +61,13 @@ The ambition: explore all three Guardian classes and their subclasses, with the 
 
 ## What lies below?
 
-| A glimpse of the plan | The possibility |
-| :--- | :--- |
-| 🏛️ **Raid-inspired depths** | Multiple floors, strange mechanisms, and a boss beyond the final door. |
-| 👥 **Alone or together** | Aiming for solo play through six-player fireteams, with challenges adapted to the group. |
-| ⚔️ **A tactical twist** | Planned turn-based encounters built around positioning, weapons, abilities, and Supers. |
-| 🎲 **Something worth opening** | A limited arsenal of weapons and armor, discovered through random drops. |
-| ✨ **A story with room to improvise** | AI-assisted narration and conversations that could react to your choices. |
+| A glimpse of the plan                 | The possibility                                                                          |
+| :------------------------------------ | :--------------------------------------------------------------------------------------- |
+| 🏛️ **Raid-inspired depths**           | Multiple floors, strange mechanisms, and a boss beyond the final door.                   |
+| 👥 **Alone or together**              | Aiming for solo play through six-player fireteams, with challenges adapted to the group. |
+| ⚔️ **A tactical twist**               | Planned turn-based encounters built around positioning, weapons, abilities, and Supers.  |
+| 🎲 **Something worth opening**        | A limited arsenal of weapons and armor, discovered through random drops.                 |
+| ✨ **A story with room to improvise** | AI-assisted narration and conversations that could react to your choices.                |
 
 **First inspiration under consideration: Vault of Glass.**
 
@@ -81,7 +81,7 @@ Which weapon would you hope to find before the next floor?
 
 ## More than a dialogue choice
 
-*“Could we distract the guard instead?”*
+_“Could we distract the guard instead?”_
 
 That's the kind of question this project hopes to make room for: creative approaches interpreted with AI assistance, checked against game rules, and woven into the narration.
 
@@ -97,7 +97,7 @@ For the detailed direction, see the [game design document](GAME_DESIGN.md). Play
 
 ### A fan project by Amrish Rajeev
 
-Guardian Delves is being created with **AI assistance**, currently supporting its planning and documentation. AI assistance in development is separate from the proposed in-game storytelling features.
+Dungeons and a Space Wizard is being created with **AI assistance**, currently supporting its planning and documentation. AI assistance in development is separate from the proposed in-game storytelling features.
 
 This is an unofficial fan-made project, unaffiliated with and not endorsed or sponsored by Bungie. Destiny, Destiny 2, and associated characters, artwork, names, and trademarks belong to their respective owners.
 
@@ -107,6 +107,6 @@ The reference images above come from Bungie's [Prismatic Deep Dive](https://www.
 
 **The fireteam hasn't assembled yet.**
 
-*This is where the idea begins.*
+_This is where the idea begins._
 
 </div>
