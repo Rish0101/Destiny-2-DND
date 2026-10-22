@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="1428" height="1680" viewBox="0 0 1428 1680" role="img" aria-labelledby="title description">
+  <title id="title">Vault entrance — editable reference reconstruction</title>
+  <desc id="description">Hand-traced recreation of the supplied overhead map, including three bronze plates,
+    branching blue river, mossy terrain, stone terraces, northern gate, stairs, and scattered blocks.
+    All geometry is SVG; textures are deterministic procedural SVG filters. Not collision data.</desc>
+  <defs>
+    <path id="land-outline" d="M782 0H925V52H1018V178H1071L1095 191L1100 201V214
+ L1105 226L1101 237L1096 243L1095 266L1100 284L1097 314
+ L1086 327L1073 333L1068 351L1063 367L1046 369L1028 380L1025 390
+ H1013V507H1287V702H1256V971H1428V1680H471
+ C468 1667 445 1663 434 1651C424 1639 427 1626 415 1621
+ L377 1605C354 1596 338 1597 325 1586L302 1561
+ C289 1549 275 1549 259 1543C239 1540 227 1531 232 1511
+ C237 1498 235 1489 225 1480L211 1465C195 1461 181 1470 164 1467
+ C146 1464 135 1452 135 1433L134 1395C137 1380 122 1370 117 1358
+ L114 1346V1336H162V1223H79V1116H50V754H79V732H157V721H203
+ L218 710L242 701L261 691L275 676L284 663L296 659L307 639
+ C334 631 357 638 379 634C400 632 409 642 424 638H442
+ L480 619C499 611 504 595 507 578C514 550 510 523 506 504
+ C499 485 505 456 504 436V410C511 392 502 379 512 354
+ L520 335C521 316 529 297 541 300L563 307L580 307L601 299L619 290
+ L623 282H635L641 272L642 256L649 247C658 245 660 237 657 229
+ V163H683V52H782Z"/>
+    <clipPath id="land-clip"><use href="#land-outline"/></clipPath>
+    <filter id="cavern-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="58"/>
+    </filter>
+    <filter id="soften" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="earth-texture" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.009 0.011" numOctaves="5" seed="41" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="scalar"/>
+      <feComponentTransfer in="scalar" result="earth">
+        <feFuncR type="table" tableValues="0.24 0.43 0.48 0.42"/>
+        <feFuncG type="table" tableValues="0.32 0.43 0.53 0.57"/>
+        <feFuncB type="table" tableValues="0.015 0.035 0.06 0.10"/>
+        <feFuncA type="linear" slope="0" intercept="1"/>
+      </feComponentTransfer>
+      <feComposite in="earth" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="stone-texture" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.017" numOctaves="4" seed="15" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="scalar"/>
+      <feComponentTransfer in="scalar" result="stone">
+        <feFuncR type="table" tableValues="0.43 0.63 0.76 0.84"/>
+        <feFuncG type="table" tableValues="0.36 0.53 0.65 0.73"/>
+        <feFuncB type="table" tableValues="0.25 0.38 0.46 0.53"/>
+        <feFuncA type="linear" slope="0" intercept="1"/>
+      </feComponentTransfer>
+      <feComposite in="stone" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="water-texture" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.019 0.016" numOctaves="4" seed="29" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="scalar"/>
+      <feComponentTransfer in="scalar" result="water">
+        <feFuncR type="table" tableValues="0.02 0.025 0.02 0.09"/>
+        <feFuncG type="table" tableValues="0.17 0.36 0.63 0.70"/>
+        <feFuncB type="table" tableValues="0.46 0.65 0.78 0.87"/>
+        <feFuncA type="linear" slope="0" intercept="1"/>
+      </feComponentTransfer>
+      <feComposite in="water" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <radialGradient id="bronze-rim" cx="42%" cy="37%" r="70%">
+      <stop stop-color="#9a4c1c"/><stop offset="0.52" stop-color="#71300e"/>
+      <stop offset="0.8" stop-color="#4a1b06"/><stop offset="1" stop-color="#7a3d12"/>
+    </radialGradient>
+    <radialGradient id="plate-core" cx="42%" cy="40%" r="64%">
+      <stop stop-color="#ae9874"/><stop offset="0.4" stop-color="#8d7355"/>
+      <stop offset="0.76" stop-color="#65442b"/><stop offset="1" stop-color="#9a5124"/>
+    </radialGradient>
+    <radialGradient id="rock-shadow" cx="59%" cy="62%" r="68%">
+      <stop stop-color="#030302"/><stop offset="0.43" stop-color="#28241b"/>
+      <stop offset="0.77" stop-color="#514a39"/><stop offset="1" stop-color="#746954"/>
+    </radialGradient>
+    <linearGradient id="gate-bronze" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#a46014"/><stop offset="0.4" stop-color="#8b3b04"/>
+      <stop offset="1" stop-color="#65511a"/>
+    </linearGradient>
+    <radialGradient id="ochre-wash">
+      <stop stop-color="#947000" stop-opacity="0.85"/><stop offset="1" stop-color="#947000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moss-wash">
+      <stop stop-color="#728518" stop-opacity="0.7"/><stop offset="1" stop-color="#728518" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="soil-wash">
+      <stop stop-color="#86551c" stop-opacity="0.60"/>
+      <stop offset="0.48" stop-color="#87601a" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#87601a" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .edge {fill:none;stroke:#100e08;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+      .stairs {stroke:#241d13;stroke-width:1.4;fill:none}
+      .blocks {fill:#dfbb8b;stroke:#110f08;stroke-width:2}
+    </style>
+  </defs>
+  <g id="background" inkscape:groupmode="layer" inkscape:label="01 Cavern background">
+    <rect width="1428" height="1680" fill="#000"/>
+    <use href="#land-outline" fill="#71624b" stroke="#71624b" stroke-width="90" filter="url(#cavern-glow)"/>
+  </g>
+  <g id="terrain" inkscape:groupmode="layer" inkscape:label="02 Moss and earth">
+    <use href="#land-outline" fill="#788323" filter="url(#earth-texture)"/>
+    <g clip-path="url(#land-clip)">
+      <ellipse cx="1079" cy="678" rx="260" ry="366" fill="url(#ochre-wash)"/>
+      <ellipse cx="1264" cy="1330" rx="350" ry="480" fill="url(#moss-wash)"/>
+      <ellipse cx="530" cy="1410" rx="220" ry="330" fill="url(#ochre-wash)" opacity="0.45"/>
+      <ellipse cx="560" cy="887" rx="165" ry="90" fill="url(#soil-wash)"/>
+<ellipse cx="724" cy="918" rx="130" ry="120" fill="url(#soil-wash)"/>
+<ellipse cx="678" cy="1050" rx="100" ry="120" fill="url(#soil-wash)"/>
+<ellipse cx="397" cy="1135" rx="120" ry="150" fill="url(#soil-wash)"/>
+<ellipse cx="345" cy="1270" rx="100" ry="150" fill="url(#soil-wash)"/>
+<ellipse cx="685" cy="1375" rx="170" ry="155" fill="url(#soil-wash)"/>
+<ellipse cx="805" cy="1290" rx="140" ry="120" fill="url(#soil-wash)"/>
+<ellipse cx="1010" cy="1530" rx="190" ry="130" fill="url(#soil-wash)"/>
+<ellipse cx="460" cy="1592" rx="130" ry="180" fill="url(#soil-wash)"/>
+<ellipse cx="1380" cy="1480" rx="150" ry="160" fill="url(#soil-wash)"/>
+<ellipse cx="880" cy="1595" rx="115" ry="90" fill="url(#soil-wash)"/>
+    </g>
+  </g>
+  <g id="stone-terraces" inkscape:groupmode="layer" inkscape:label="03 Stone terraces">
+    <path id="upper-stone" d="M782 0H925V52H1018V178H1071L1095 191L1100 201V214
+ L1105 226L1101 237L1096 243L1095 266L1100 284L1097 314
+ L1086 327L1073 333L1068 351L1063 367L1046 369L1028 380L1025 390
+ H1013V507H1171C1151 523 1145 549 1138 571L1131 584
+ C1118 591 1106 580 1094 583C1070 584 1054 580 1041 568
+ C1022 568 1005 566 993 557L977 542C974 530 965 528 957 524
+ L947 506L944 490L940 477
+ C942 505 948 518 958 526C976 531 979 549 995 558
+ C1008 567 1021 566 1040 568C1054 581 1076 585 1093 583
+ C1107 581 1120 591 1132 584C1147 566 1144 529 1171 507H1287V702
+ H1256V871L1244 886Q1238 899 1246 924
+ L1178 920C1177 892 1165 878 1143 861L1100 837L1089 825
+ L1070 786C1074 772 1056 755 1051 734L1042 707
+ C1041 689 1044 667 1030 652C1020 643 996 642 985 632
+ L974 620L953 610L944 594L930 587L917 575L895 570
+ C876 552 855 554 839 558
+ C855 552 876 556 895 571L916 577L930 587L944 594L952 610
+ L976 623L987 634C1000 644 1020 642 1030 652
+ C1044 670 1039 691 1044 714L1051 742L1066 770L1070 786
+ H1090V841L1135 858C1162 878 1174 889 1178 920L1246 924
+ L1256 871V971H1282V1058H1307V1173H1237V1260H1208V1352
+ H1201V1414H972V1369H895V1263H892V1145H895V1115H928V1014H975V896
+ H1006V812H922V702L907 705L895 718C880 726 856 733 838 726
+ C829 718 830 708 817 698C800 681 774 670 753 669V708H692V703
+ H587V696H559V679H534L522 681L514 690L495 694L479 707
+ L474 725C454 729 438 728 424 737C412 744 419 763 400 774
+ L399 949H309V990L283 1002L266 1010H223V954H88V1011H50V754H79
+ V732H157V721H203L218 710L242 701L261 691L275 676L284 663L296 659
+ L307 639C334 631 357 638 379 634C400 632 409 642 424 638H442
+ L480 619C499 611 504 595 507 578C514 550 510 523 506 504
+ C499 485 505 456 504 436V410C511 392 502 379 512 354
+ L520 335C521 316 529 297 541 300L563 307L580 307L601 299L619 290
+ L623 282H635L641 272L642 256L649 247C658 245 660 237 657 229
+ V163H683V52H782Z" fill="#bca17b" filter="url(#stone-texture)"/>
+    <path id="west-stone" d="M50 1011H88V954H223V1011H267L277 1021L259 1042
+ V1170H283V1272H162V1223H79V1116H50Z" fill="#bca17b" filter="url(#stone-texture)"/>
+    <path id="east-stone" d="M922 702V812H1006V896H975V1014H928V1115H895V1145
+ H892V1263H895V1369H972V1414H1201V1352H1208V1260H1237V1173
+ H1307V1058H1282V971H1256V871L1244 886Q1238 899 1246 924
+ M922 702L907 705L895 718C880 726 856 733 838 726" fill="#bca17b" filter="url(#stone-texture)"/>
+    <path id="eastern-ochre-slope" d="M940 477C936 500 929 528 904 541Q862 542 839 558
+ C855 552 876 556 895 570L917 575L930 587L944 594L953 610L974 620
+ L985 632Q1000 642 1014 643L1030 652Q1043 671 1042 697L1048 727
+ Q1052 751 1062 765Q1073 781 1070 786L1090 825Q1103 839 1135 854
+ Q1178 879 1178 920L1246 924Q1237 890 1256 871V702H1287V507H1171
+ Q1157 515 1147 546Q1143 566 1132 583L1125 587Q1115 582 1094 583
+ Q1057 584 1041 568Q1009 569 993 557L977 542Q972 528 957 524
+ L947 506L944 490Z" fill="#877009" filter="url(#earth-texture)"/>
+    <clipPath id="ochre-clip"><path d="M940 477C936 500 929 528 904 541Q862 542 839 558
+ C855 552 876 556 895 570L917 575L930 587L944 594L953 610L974 620
+ L985 632Q1000 642 1014 643L1030 652Q1043 671 1042 697L1048 727
+ Q1052 751 1062 765Q1073 781 1070 786L1090 825Q1103 839 1135 854
+ Q1178 879 1178 920L1246 924Q1237 890 1256 871V702H1287V507H1171
+ Q1157 515 1147 546Q1143 566 1132 583L1125 587Q1115 582 1094 583
+ Q1057 584 1041 568Q1009 569 993 557L977 542Q972 528 957 524
+ L947 506L944 490Z"/></clipPath>
+    <ellipse cx="1115" cy="670" rx="300" ry="400" fill="url(#ochre-wash)" clip-path="url(#ochre-clip)"/>
+    <ellipse cx="927" cy="542" rx="115" ry="90" fill="url(#ochre-wash)"/>
+  </g>
+  <g id="water" inkscape:groupmode="layer" inkscape:label="04 River and lower pool" clip-path="url(#land-clip)">
+    <path id="river" d="M499 693C517 690 523 713 527 732C530 744 536 757 526 776
+ C511 791 510 818 507 838C504 859 514 870 527 885L543 909
+ C555 921 563 936 550 948L537 967C528 983 534 1008 538 1025
+ C541 1041 535 1066 551 1077L577 1093C586 1114 600 1127 618 1130
+ C633 1135 644 1121 651 1133L663 1157L676 1165C688 1164 698 1143 706 1125
+ C717 1107 715 1092 712 1080C706 1061 727 1055 735 1042
+ L758 1015L781 991C790 981 812 986 825 971C838 956 830 940 841 925
+ C850 909 863 909 870 902L876 881C879 872 891 875 903 877
+ C894 855 910 842 920 827L931 812H1006V895H975V960
+ C959 970 946 974 940 987L934 1002L915 1008C898 1017 883 1033 876 1050
+ C869 1066 862 1077 844 1073C830 1070 830 1088 823 1097
+ C819 1109 826 1119 812 1128C801 1138 794 1127 784 1131
+ C771 1138 766 1152 760 1167L748 1195C733 1220 713 1246 691 1256
+ C676 1261 661 1266 656 1280C651 1298 634 1303 614 1312
+ L594 1333C577 1350 585 1362 603 1372L629 1381
+ C643 1393 630 1404 615 1416C602 1429 608 1452 599 1466
+ C589 1482 579 1500 566 1513L563 1532C574 1540 589 1532 604 1532
+ C621 1531 636 1540 654 1539L690 1526C706 1521 714 1503 728 1507
+ C746 1509 748 1525 768 1524C789 1522 800 1510 816 1517
+ C830 1514 845 1518 846 1527C846 1539 828 1544 819 1550
+ C807 1560 810 1578 796 1574C784 1574 784 1553 774 1548
+ C760 1540 745 1544 731 1552C724 1563 719 1575 705 1578
+ C693 1584 685 1589 678 1579L670 1567C654 1574 646 1586 629 1580
+ C611 1574 599 1574 585 1585C574 1591 567 1602 565 1616
+ C559 1637 573 1658 568 1680H507C515 1659 518 1637 518 1620
+ L513 1586C508 1571 505 1567 512 1556C522 1543 538 1542 527 1518
+ C524 1505 520 1490 506 1487C485 1481 486 1469 475 1454
+ C468 1437 459 1449 448 1454C428 1465 433 1491 423 1506
+ C416 1522 399 1518 393 1502C389 1491 378 1487 363 1484
+ C347 1481 347 1475 350 1456C351 1432 366 1446 384 1447
+ C406 1448 399 1434 390 1426C406 1418 433 1422 438 1407
+ C444 1392 420 1380 406 1371L384 1362C373 1352 392 1345 404 1340
+ C422 1333 441 1321 431 1310C423 1297 397 1290 391 1279
+ C387 1269 409 1265 425 1261L475 1250C498 1252 523 1245 542 1234
+ C562 1224 570 1211 572 1198C566 1183 548 1196 537 1193
+ C526 1192 533 1174 527 1165C519 1152 519 1140 507 1128L477 1100
+ C465 1083 470 1061 470 1041C468 1024 457 1013 453 997V975
+ C435 972 429 965 442 951C459 929 451 907 459 888L463 857
+ C455 838 464 821 463 806C452 791 453 770 456 755
+ C460 736 451 729 449 730L474 724L478 707Z" fill="#1288b2" filter="url(#water-texture)"/>
+    <path id="southeast-pool" d="M1207 1680L1218 1663L1210 1648L1207 1621Q1208 1614 1223 1624
+      L1242 1631L1258 1644L1282 1639L1304 1643L1324 1640L1345 1644L1372 1641L1387 1617
+      Q1404 1597 1416 1600L1428 1606V1680Z" fill="#14269b" stroke="#080b19" stroke-width="2"/>
+  </g>
+  <g id="terrain-edges" inkscape:groupmode="layer" inkscape:label="05 Cliff and wall outlines" class="edge">
+    <use href="#land-outline"/>
+    <path d="M1018 52V178H1071M1013 390V507H1287M1256 702V971H1428"/>
+    <path d="M940 477L944 490L947 506L957 524Q972 528 977 542L993 557Q1009 569 1041 568
+      Q1057 584 1094 583Q1115 582 1125 587L1132 583Q1143 566 1147 546Q1157 515 1171 507"/>
+    <path d="M839 558Q868 551 895 570L917 575L930 587L944 594L953 610L974 620L985 632
+      Q996 642 1014 643L1030 652Q1043 671 1042 697L1048 727Q1052 751 1062 765Q1073 781 1070 786"/>
+    <path d="M1256 871Q1237 890 1246 924M1090 825Q1103 839 1135 854Q1178 879 1178 920"/>
+    <path d="M50 1011H88M223 1011H266M309 990V949H399V774Q414 767 415 751Q417 736 437 732
+      L474 725L479 707L495 694L514 690L522 681L534 679H559V696H587V703H692V708H753V669
+      Q788 672 817 698Q830 709 833 720Q839 732 865 728Q886 727 900 713L907 705L922 702
+      V812H1006V896H975V1014H928V1115H895V1145"/>
+    <path d="M259 1115V1170H283V1273M895 1263V1369H972V1414H1201V1352H1208V1260H1237V1173H1307V1058H1282V971"/>
+  </g>
+  <g id="stairs-and-gate" inkscape:groupmode="layer" inkscape:label="06 Stairs and northern gate">
+    <g class="stairs"><rect x="683" y="114" width="335" height="48" fill="#c2a37a"/><path d="M683 114.00h335"/><path d="M683 122.00h335"/><path d="M683 130.00h335"/><path d="M683 138.00h335"/><path d="M683 146.00h335"/><path d="M683 154.00h335"/><path d="M683 162.00h335"/><path d="M683 110v56m335 0v-56"/></g>
+    <g class="stairs"><rect x="88" y="954" width="135" height="48" fill="#c2a37a"/><path d="M88 954.00h135"/><path d="M88 962.00h135"/><path d="M88 970.00h135"/><path d="M88 978.00h135"/><path d="M88 986.00h135"/><path d="M88 994.00h135"/><path d="M88 1002.00h135"/><path d="M88 950v56m135 0v-56"/></g>
+    <g class="stairs"><rect x="162" y="1230" width="121" height="40" fill="#c2a37a"/><path d="M162 1230.00h121"/><path d="M162 1238.00h121"/><path d="M162 1246.00h121"/><path d="M162 1254.00h121"/><path d="M162 1262.00h121"/><path d="M162 1270.00h121"/><path d="M162 1226v48m121 0v-48"/></g>
+    <g class="stairs"><rect x="927" y="1182" width="215" height="48" fill="#c2a37a"/><path d="M927 1182.00h215"/><path d="M927 1190.00h215"/><path d="M927 1198.00h215"/><path d="M927 1206.00h215"/><path d="M927 1214.00h215"/><path d="M927 1222.00h215"/><path d="M927 1230.00h215"/><path d="M927 1178v56m215 0v-56"/></g>
+    <path id="northern-gate" d="M683 52Q850 92 1018 52V84Q850 130 683 84Z"
+      fill="url(#gate-bronze)" stroke="#110d06" stroke-width="2"/>
+  </g>
+  <g id="boulder" inkscape:groupmode="layer" inkscape:label="07 Western boulder">
+    <path d="M297 987C320 986 342 1000 345 1020C356 1044 354 1067 347 1088
+ C340 1101 344 1115 335 1127L314 1142C301 1151 296 1164 282 1152
+ C271 1145 272 1133 260 1122L244 1104C240 1090 231 1079 235 1062
+ C236 1048 248 1042 253 1032L266 1008C274 994 284 993 297 987Z" fill="url(#rock-shadow)" stroke="#0c0b06" stroke-width="2"/>
+  </g>
+  <g id="plates" inkscape:groupmode="layer" inkscape:label="08 Three circular plates">
+    <g id="plate-north" transform="translate(797 350)">
+      <title>North circular plate</title>
+      <circle r="44" fill="url(#bronze-rim)" stroke="#080704" stroke-width="2"/>
+      <circle r="38" fill="none" stroke="#080704" stroke-width="2"/>
+      <circle r="34" fill="url(#bronze-rim)" stroke="#110803" stroke-width="1.5"/>
+      <circle r="28" fill="url(#plate-core)" stroke="#0d0805" stroke-width="2"/>
+      <circle r="25" fill="#b99b6d" opacity="0.19" filter="url(#soften)"/>
+    </g>
+    <g id="plate-west" transform="translate(154 1050)">
+      <title>West circular plate</title>
+      <circle r="44" fill="url(#bronze-rim)" stroke="#080704" stroke-width="2"/>
+      <circle r="38" fill="none" stroke="#080704" stroke-width="2"/>
+      <circle r="34" fill="url(#bronze-rim)" stroke="#110803" stroke-width="1.5"/>
+      <circle r="28" fill="url(#plate-core)" stroke="#0d0805" stroke-width="2"/>
+      <circle r="25" fill="#b99b6d" opacity="0.19" filter="url(#soften)"/>
+    </g>
+    <g id="plate-east" transform="translate(1133 966)">
+      <title>East circular plate</title>
+      <circle r="44" fill="url(#bronze-rim)" stroke="#080704" stroke-width="2"/>
+      <circle r="38" fill="none" stroke="#080704" stroke-width="2"/>
+      <circle r="34" fill="url(#bronze-rim)" stroke="#110803" stroke-width="1.5"/>
+      <circle r="28" fill="url(#plate-core)" stroke="#0d0805" stroke-width="2"/>
+      <circle r="25" fill="#b99b6d" opacity="0.19" filter="url(#soften)"/>
+    </g>
+  </g>
+  <g id="blocks" inkscape:groupmode="layer" inkscape:label="09 Stone blocks" class="blocks">
+    <rect id="stone-block-01" x="671" y="314" width="37" height="72"/>
+<rect id="stone-block-02" x="695" y="360" width="24" height="31"/>
+<rect id="stone-block-03" x="847" y="309" width="28" height="53"/>
+<rect id="stone-block-04" x="675" y="557" width="90" height="57"/>
+<rect id="stone-block-05" x="336" y="757" width="29" height="35"/>
+<rect id="stone-block-06" x="174" y="870" width="54" height="22"/>
+<rect id="stone-block-07" x="364" y="869" width="35" height="53"/>
+<rect id="stone-block-08" x="1041" y="786" width="49" height="56"/>
+<rect id="stone-block-09" x="1062" y="899" width="55" height="23"/>
+<rect id="stone-block-10" x="935" y="1037" width="22" height="83"/>
+<rect id="stone-block-11" x="974" y="1121" width="39" height="27"/>
+<rect id="stone-block-12" x="173" y="1126" width="27" height="53"/>
+<rect id="stone-block-13" x="229" y="1205" width="25" height="25"/>
+<rect id="stone-block-14" x="892" y="1145" width="35" height="118"/>
+<rect id="stone-block-15" x="1142" y="1167" width="56" height="66"/>
+<rect id="stone-block-16" x="1150" y="1200" width="60" height="66"/>
+<rect id="stone-block-17" x="1118" y="1351" width="79" height="62"/>
+<rect id="stone-block-18" x="1121" y="1373" width="31" height="40"/>
+<rect id="stone-block-19" x="753" y="1400" width="141" height="87"/>
+<rect id="stone-block-20" x="731" y="1374" width="49" height="56"/>
+<rect id="stone-block-21" x="750" y="1457" width="32" height="35"/>
+    <rect id="west-plate-center" x="138" y="1035" width="26" height="26"/>
+  </g>
+</svg>
